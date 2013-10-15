@@ -356,7 +356,9 @@ module Sauce
       end
 
       if env.include? 'SAUCE_PERFILE_BROWSERS'
-        opts[:perfile_browsers] = JSON.parse(env['SAUCE_PERFILE_BROWSERS'])
+        STDERR.puts "FOUND PERFILE BROWSERS: #{opts[:perfile_browsers]}"
+        exit(1)
+        #opts[:perfile_browsers] = JSON.parse(env['SAUCE_PERFILE_BROWSERS'])
       end
 
       return opts.delete_if {|key, value| value.nil?}
