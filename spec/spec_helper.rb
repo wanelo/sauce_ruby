@@ -4,9 +4,11 @@ SimpleCov.start
 require "rspec"
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 
-['sauce-jasmine', 'sauce-cucumber', 'sauce-connect'].each do |gem|
+['sauce-cucumber', 'sauce-connect'].each do |gem|
   $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../gems/#{gem}/lib"))
 end
+
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../sauce-jasmine/lib"))
 
 require 'sauce'
 require 'capybara'
