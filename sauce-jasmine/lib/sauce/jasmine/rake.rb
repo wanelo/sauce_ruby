@@ -24,6 +24,11 @@ namespace :jasmine do
       end
     end
 
+    RSpec::Core::RakeTask.new(:browser) do |t|
+      t.rspec_opts = '--color'
+      t.pattern = [File.expand_path(File.dirname(__FILE__) + '/runner.rb')]
+    end
+
     [[:firefox, 8], [:chrome, nil], [:iexplore, 8]].each do |browser, version|
       desc "Execute Jasmine tests in #{browser}"
       RSpec::Core::RakeTask.new(browser) do |t|
