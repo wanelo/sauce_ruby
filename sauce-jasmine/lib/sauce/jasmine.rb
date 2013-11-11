@@ -22,7 +22,7 @@ end
 module Jasmine
   class Configuration
     def port
-      3001
+      ENV['JASMINE_PORT'] || 3001
     end
   end
 end
